@@ -1,5 +1,6 @@
 import { SalePage } from "assets/types/sale";
 import axios from "axios";
+import Pagination from "components/Pagination";
 //import Pagination from "components/Pagination";
 import { useEffect, useState } from "react";
 //import { SalePage } from "types/sale";
@@ -27,11 +28,15 @@ const DataTable = () => {
             });
     }, [activePage]);
 
+    const changePage = (index: number) => {
+        setActivePage(index);
+    }
     
 
     return (
         <>
-            
+            <Pagination page={page} onPageChange={changePage} />
+
             <div className="table-responsive">
                 <table className="table table-striped table-sm">
                     <thead>
